@@ -7,7 +7,8 @@
     "navtest": "mocha test/navigateTest/navigatetest.js --no-timeouts --reporter mochawesome --require mochawesome/register",
     "react-api-test":"mocha test/apiTests/reactApiTest/*.js --no-timeouts --reporter mochawesome --require mochawesome/register",
      "react-api-carriers":"mocha test/apiTests/reactApiTest/carriers.js --no-timeouts --reporter mochawesome --require mochawesome/register",
-     "react-api-account":"mocha test/apiTests/reactApiTest/account.js --no-timeouts --reporter mochawesome --require mochawesome/register"
+     "react-api-account":"mocha test/apiTests/reactApiTest/account.js --no-timeouts --reporter mochawesome --require mochawesome/register",
+     "react-api-routes":"mocha test/apiTests/reactApiTest/routes.js --no-timeouts --reporter mochawesome --require mochawesome/register"
   },
   "author": "",
   "license": "ISC",
