@@ -1,0 +1,27 @@
+{
+  "name": "seleniumdemo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**/*.js --no-timeouts --parallel --reporter mochawesome --require mochawesome/register",
+    "navtest": "mocha test/navigateTest/navigatetest.js --no-timeouts --reporter mochawesome --require mochawesome/register",
+    "react-api-test":"mocha test/apiTests/reactApiTest/*.js --no-timeouts --reporter mochawesome --require mochawesome/register",
+     "react-api-carriers":"mocha test/apiTests/reactApiTest/carriers.js --no-timeouts --reporter mochawesome --require mochawesome/register",
+     "react-api-account":"mocha test/apiTests/reactApiTest/account.js --no-timeouts --reporter mochawesome --require mochawesome/register"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^5.1.2",
+    "chai-as-promised": "^8.0.1",
+    "mochawesome": "^7.1.3",
+    "selenium-webdriver": "^4.27.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "description": "",
+  "devDependencies": {
+    "pactum": "^3.7.6"
+  }
+}

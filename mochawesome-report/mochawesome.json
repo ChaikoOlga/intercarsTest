@@ -1,0 +1,173 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 0,
+    "pending": 0,
+    "failures": 4,
+    "start": "2025-02-10T14:51:39.337Z",
+    "end": "2025-02-10T14:51:44.956Z",
+    "duration": 5619,
+    "testsRegistered": 4,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8f22e4da-14e1-4a9f-a052-964de57c58bb",
+      "title": "",
+      "fullFile": "E:\\seleniumDemo\\intercarsTest\\test\\apiTests\\reactApiTest\\account.js",
+      "file": "\\test\\apiTests\\reactApiTest\\account.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4f7bc5b3-5ec4-42e8-abce-beb61e4cf18d",
+          "title": "api tests account register",
+          "fullFile": "E:\\seleniumDemo\\intercarsTest\\test\\apiTests\\reactApiTest\\account.js",
+          "file": "\\test\\apiTests\\reactApiTest\\account.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Account_register. Status 200.Json ",
+              "fullTitle": "api tests account register Account_register. Status 200.Json ",
+              "timedOut": false,
+              "duration": 5403,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//arrange\n //action and assert\n await spec()\n     .post(ROUTE_POST_ACCOUNT_REGISTER)\n     .withJson({\n     \"Lang\": \"RUS\",\n     \"UserName\": \"olga\",\n     \"Password\": \"852852852Gg!\",\n     \"ConfirmPassword\": \"852852852Gg!\",\n     \"FirstName\": \"olga\",\n     \"LastName\": \"chaiko\",\n     \"MiddleName\": \"none\",\n })\n .expectStatus(200)\n .expectJsonMatch(JSON)",
+              "err": {
+                "message": "AssertionError: HTTP status 400 !== 200",
+                "estack": "AssertionError [ERR_ASSERTION]: HTTP status 400 !== 200\n    at Expect._validateStatus (node_modules\\pactum\\src\\models\\expect.js:106:14)\n    at Expect.validate (node_modules\\pactum\\src\\models\\expect.js:47:10)\n    at Tosser.validateResponse (node_modules\\pactum\\src\\models\\Tosser.js:255:23)\n    at Tosser.validate (node_modules\\pactum\\src\\models\\Tosser.js:219:18)\n    at Tosser.toss (node_modules\\pactum\\src\\models\\Tosser.js:46:18)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 400\n+ 200\n"
+              },
+              "uuid": "b6ebec5d-64c0-4c3e-b910-ba8d3b5a6627",
+              "parentUUID": "4f7bc5b3-5ec4-42e8-abce-beb61e4cf18d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Account_register_short_password. Status 400.Json ",
+              "fullTitle": "api tests account register Account_register_short_password. Status 400.Json ",
+              "timedOut": false,
+              "duration": 75,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//arrange\nawait spec()\n    .post(ROUTE_POST_ACCOUNT_REGISTER)\n    .withJson({\n    \"Lang\": \"RUS\",\n    \"UserName\": \"olga\",\n    \"Password\": \"852\",\n    \"ConfirmPassword\": \"852\",\n    \"FirstName\": \"olga\",\n    \"LastName\": \"chaiko\",\n    \"MiddleName\": \"none\",\n})\n.expectStatus(400)\n.expectJsonMatch(JSON)\n.expectJsonMatch(\"Result\", null)\n.expectJsonMatch(\"Error.Message\",\"Пароль должен содержать не менее 8 символов\")",
+              "err": {
+                "message": "AssertionError: Json doesn't have a value 'Пароль должен содержать не менее 8 символов' at 'Error.Message' but found 'Ошибка получения данных.'",
+                "estack": "AssertionError [ERR_ASSERTION]: Json doesn't have a value 'Пароль должен содержать не менее 8 символов' at 'Error.Message' but found 'Ошибка получения данных.'\n    at Expect.fail (node_modules\\pactum\\src\\models\\expect.js:464:12)\n    at Expect._validateJsonMatchQuery (node_modules\\pactum\\src\\models\\expect.js:303:14)\n    at Expect.validate (node_modules\\pactum\\src\\models\\expect.js:61:10)\n    at Tosser.validateResponse (node_modules\\pactum\\src\\models\\Tosser.js:255:23)\n    at Tosser.validate (node_modules\\pactum\\src\\models\\Tosser.js:219:18)\n    at Tosser.toss (node_modules\\pactum\\src\\models\\Tosser.js:46:18)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": null
+              },
+              "uuid": "6dcf41f0-be4d-4d47-91ba-134014fcf676",
+              "parentUUID": "4f7bc5b3-5ec4-42e8-abce-beb61e4cf18d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Account_register_password_without_letter. Status 400.Json ",
+              "fullTitle": "api tests account register Account_register_password_without_letter. Status 400.Json ",
+              "timedOut": false,
+              "duration": 74,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//arrange\nawait spec()\n    .post(ROUTE_POST_ACCOUNT_REGISTER)\n    .withJson({\n    \"Lang\": \"RUS\",\n    \"UserName\": \"olga\",\n    \"Password\": \"852998326!\",\n    \"ConfirmPassword\": \"852998326!\",\n    \"FirstName\": \"olga\",\n    \"LastName\": \"chaiko\",\n    \"MiddleName\": \"none\",\n})\n.expectStatus(400)\n.expectJsonMatch(JSON)\n.expectJsonMatch(\"Result\", null)\n.expectJsonMatch(\"Error.Message\",\"Должна быть как минимум одна заглавная и одна строчная буква\")",
+              "err": {
+                "message": "AssertionError: Json doesn't have a value 'Должна быть как минимум одна заглавная и одна строчная буква' at 'Error.Message' but found 'Ошибка получения данных.'",
+                "estack": "AssertionError [ERR_ASSERTION]: Json doesn't have a value 'Должна быть как минимум одна заглавная и одна строчная буква' at 'Error.Message' but found 'Ошибка получения данных.'\n    at Expect.fail (node_modules\\pactum\\src\\models\\expect.js:464:12)\n    at Expect._validateJsonMatchQuery (node_modules\\pactum\\src\\models\\expect.js:303:14)\n    at Expect.validate (node_modules\\pactum\\src\\models\\expect.js:61:10)\n    at Tosser.validateResponse (node_modules\\pactum\\src\\models\\Tosser.js:255:23)\n    at Tosser.validate (node_modules\\pactum\\src\\models\\Tosser.js:219:18)\n    at Tosser.toss (node_modules\\pactum\\src\\models\\Tosser.js:46:18)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": null
+              },
+              "uuid": "2d5eadb4-6cb9-4d84-bd8a-64063ac1d8e9",
+              "parentUUID": "4f7bc5b3-5ec4-42e8-abce-beb61e4cf18d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Account_register_password_without_numbers. Status 400.Json ",
+              "fullTitle": "api tests account register Account_register_password_without_numbers. Status 400.Json ",
+              "timedOut": false,
+              "duration": 55,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//arrange\nawait spec()\n    .post(ROUTE_POST_ACCOUNT_REGISTER)\n    .withJson({\n    \"Lang\": \"RUS\",\n    \"UserName\": \"olga\",\n    \"Password\": \"olgaolgaolga!\",\n    \"ConfirmPassword\": \"olgaolgaolga!\",\n    \"FirstName\": \"olga\",\n    \"LastName\": \"chaiko\",\n    \"MiddleName\": \"none\",\n})\n.expectStatus(400)\n.expectJsonMatch(JSON)\n.expectJsonMatch(\"Result\", null)\n.expectJsonMatch(\"Error.Message\",\"Должна быть как минимум 1 цифра\")",
+              "err": {
+                "message": "AssertionError: Json doesn't have a value 'Должна быть как минимум 1 цифра' at 'Error.Message' but found 'Ошибка получения данных.'",
+                "estack": "AssertionError [ERR_ASSERTION]: Json doesn't have a value 'Должна быть как минимум 1 цифра' at 'Error.Message' but found 'Ошибка получения данных.'\n    at Expect.fail (node_modules\\pactum\\src\\models\\expect.js:464:12)\n    at Expect._validateJsonMatchQuery (node_modules\\pactum\\src\\models\\expect.js:303:14)\n    at Expect.validate (node_modules\\pactum\\src\\models\\expect.js:61:10)\n    at Tosser.validateResponse (node_modules\\pactum\\src\\models\\Tosser.js:255:23)\n    at Tosser.validate (node_modules\\pactum\\src\\models\\Tosser.js:219:18)\n    at Tosser.toss (node_modules\\pactum\\src\\models\\Tosser.js:46:18)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": null
+              },
+              "uuid": "4586564c-0465-46b4-be5a-391548511801",
+              "parentUUID": "4f7bc5b3-5ec4-42e8-abce-beb61e4cf18d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b6ebec5d-64c0-4c3e-b910-ba8d3b5a6627",
+            "6dcf41f0-be4d-4d47-91ba-134014fcf676",
+            "2d5eadb4-6cb9-4d84-bd8a-64063ac1d8e9",
+            "4586564c-0465-46b4-be5a-391548511801"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 5607,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 0
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
